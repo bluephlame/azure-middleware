@@ -1,5 +1,5 @@
 const chai = require('chai');
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 const spies = require('chai-spies');
 
 const MiddlewareHandler = require('../index');

@@ -1,7 +1,7 @@
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 
 const validateSchema = schema => (ctx, input) => {
-  const { error } = Joi.validate(input, schema);
+  const { error } = schema.validate(input);
   return ctx.next(
     error
       ? {
