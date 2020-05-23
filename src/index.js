@@ -1,13 +1,13 @@
 const Joi = require('@hapi/joi');
 
 const validateSchema = schema => (ctx, input) => {
-  const { error } = schema.validate(input);
+  const { error } = schema.validate(input.body);
   return ctx.next(
     error
       ? {
           message: `Invalid input, ${error.message}`,
           details: JSON.stringify(error.details),
-          input: JSON.stringify(input)
+          input: JSON.stringify(input.body)
         }
       : null
   );
